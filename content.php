@@ -2,7 +2,25 @@
 
 
 require('fonksiyonlar.php');
-    $msorgu = $baglan->query("select * from makale order by makale_tarih desc");
+    $sayfa = @$_GET['sayfa'];
+
+    if (empty($sayfa) || (!is_numeric($sayfa))) {
+        $sayfa=1;
+    }
+
+    $kacar = 2; 
+
+    $ssorgu = $baglan->query("select * from makale");
+    
+    $ssorgusonuc = $ssorgu->rowCount();
+
+
+    $sayfasayisi = ceil($ssorgusonuc/$kacar);
+
+    $nerden = ($sayfa * $kacar) - $kacar;
+
+    $msorgu = $baglan->query("select * from makale order by makale_id desc limit $nerden, $kacar");
+
     
 ?>
         <div id="primary" class="sidebar-right">
@@ -69,12 +87,18 @@ require('fonksiyonlar.php');
 <!--Sayfalama burada olacak-->
 
 <div class="general-pagination group">
-                                        <a href="#" class="selected">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
+<?php 
+    for ($i=1; $i < $sayfasayisi+1; $i++) { 
+        echo "<a href='index.php?sayfa=$i' class='"; 
+            if ($sayfa==$i) {
+                echo "selected";
+            }
+        echo "'>$i</a>";
+    }
 
-
-                                    </div>
+ ?>
+    
+</div>
 
 <!--Sayfalama burada olacak-->
 

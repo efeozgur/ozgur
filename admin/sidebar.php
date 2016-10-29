@@ -23,10 +23,11 @@
                     </li>
                    
                     <li>
-                        <a class="" href="sayfaayar.php"><i class="fa fa-square-o "></i>Sayfa Genel Ayarları</a>
+                        <a class="" href="sayfaayar.php"><i class="fa fa-cog"></i>Sayfa Genel Ayarları</a>
                     </li>
                     
-                    <li> <a class="" href="makale.php"><i class="fa fa-square-o "></i>Makale Girişi</a></li>
+                    <li> <a class="" href="makale.php"><i class="fa fa-plus"></i>Makale Girişi</a></li>
+                    <li> <a class="" href="makalesil.php"><i class="fa fa-trash-o"></i>Makale Silme</a></li>
                 </ul>
             </div>
 

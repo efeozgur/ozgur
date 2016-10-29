@@ -24,7 +24,7 @@ if(@$_POST['btnmakalekaydet']){
 }
 
 
-if ($_POST['girisbtn']) {
+if (@$_POST['girisbtn']) {
     $usersorgu = $baglan->query("select * from user");
     $userim = $usersorgu->fetch(PDO::FETCH_ASSOC);
 
@@ -35,6 +35,17 @@ if ($_POST['girisbtn']) {
         header('Location:index.php?kdurum=kok');
     } else header('Location:../index.php');
     
+}
+
+if ($_GET['kayitsil']) {
+    $id=$_GET['kayitsil'];
+    $sorgu = $baglan->prepare('delete from makale where makale_id=?');
+    $sonuc = $sorgu->execute(array($id));
+
+    if ($sorgu->rowCount()) {
+        header("Location:makalesil.php?status=ok");
+    } else header("Location:makalesil.php?status=hata");
+   
 }
 
 ?>
