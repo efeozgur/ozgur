@@ -1,4 +1,6 @@
 <?php 
+
+
 require('fonksiyonlar.php');
     $msorgu = $baglan->query("select * from makale order by makale_tarih desc");
     
