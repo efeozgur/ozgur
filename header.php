@@ -1,6 +1,9 @@
 <?php require('admin/config/vt.php'); 
     $sorgu = $baglan->query('select * from ayar');
     $sonuc = $sorgu->fetch(PDO::FETCH_ASSOC);
+
+    session_start();
+
 ?>
 <!DOCTYPE html>
     <!--[if IE 6]>
@@ -113,12 +116,16 @@
                             <!-- START TOPBAR LOGIN -->
 
                             <div id="topbar_login" class="not_logged_in">
-
+                                <?php if (empty($_SESSION['username'])) {
+                                    # code...
+                                 ?>
                                 <a class="topbar_login" href="#">
                                     Giriş Yap <span class="sf-sub-indicator"></span>
                                 </a>
 
                                 <div id="fast-login" class="access-info-box">
+
+
                                     <form action="admin/islem.php" method="post" name="loginform">
 
                                         <div class="form">
@@ -145,7 +152,11 @@
                                             </p>
                                         </div>
                                     </form>
+                                   
                                 </div>
+
+                                 <?php } else {echo "<p style='color:white'>".$_SESSION['username']." olarak giriş yaptınız| <a href='admin/index.php'>Admin Panel </a> |<a href='admin/destroy.php'> Çıkış Yap</a></p>";} ?>
+
                             </div>
                             <!-- END TOPBAR LOGIN -->
                         </div>

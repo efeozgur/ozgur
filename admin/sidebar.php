@@ -6,7 +6,7 @@
                             <img src="assets/img/efe.jpg" class="img-thumbnail" />
 
                             <div class="inner-text">
-                                Efe Özgür
+                                <?php echo $_SESSION['username']; ?>
                             <br />
                                 <small>Son Giriş : 2 Hafta önce </small>
                             </div>
@@ -17,6 +17,9 @@
 
                     <li>
                         <a  href="index.php"><i class="fa fa-dashboard "></i>Anasayfa</a>
+                    </li>                    
+                    <li>
+                        <a  href="../index.php"><i class="fa fa-dashboard "></i>Site Anasayfa</a>
                     </li>
                    
                     <li>

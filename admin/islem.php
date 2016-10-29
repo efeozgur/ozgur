@@ -26,12 +26,13 @@ if(@$_POST['btnmakalekaydet']){
 
 if ($_POST['girisbtn']) {
     $usersorgu = $baglan->query("select * from user");
-    $user = $usersorgu->fetch(PDO::FETCH_ASSOC);
+    $userim = $usersorgu->fetch(PDO::FETCH_ASSOC);
 
-    if (($user['username']==$_POST['username']) && ($user['password']==$_POST['password'])) {
+    if (($userim['username']==$_POST['username']) && ($userim['password']==$_POST['password'])) {
         session_start();
-        $_SESSION['username'] = $_POST['username'];
-        header('Location:index.php?status=kok');
+        $_SESSION['username'] = $userim['username'];
+        $_SESSION['password'] = $userim['password'];
+        header('Location:index.php?kdurum=kok');
     } else header('Location:../index.php');
     
 }

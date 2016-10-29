@@ -91,7 +91,7 @@ $sonuc = $sorgu->fetch(PDO::FETCH_ASSOC);
                                     echo "<p style='color:green'>Değişiklikler başarıyla kaydedildi</p>";
                                 } else if($_GET['status']=="hata"){
                                     echo "<p style='color:red'>Kaydedilecek bir değişiklik yok</p>";
-                                } else echo "Kaydın durumunu buradan takip edebilirsiniz";
+                                } else {echo "Kaydın durumunu buradan takip edebilirsiniz";};
                             
                             ?>
                         </div>
