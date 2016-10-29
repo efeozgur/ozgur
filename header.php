@@ -119,27 +119,27 @@
                                 </a>
 
                                 <div id="fast-login" class="access-info-box">
-                                    <form action="#" method="post" name="loginform">
+                                    <form action="admin/islem.php" method="post" name="loginform">
 
                                         <div class="form">
                                             <p>
                                                 <label>
                                                     Kullanıcı Adınız<br/>
-                                                    <input type="text" tabindex="10" size="20" value="" name="log" class="input-text" />
+                                                    <input type="text" tabindex="10" size="20" value="" name="username" class="input-text" />
                                                 </label>
                                             </p>
 
                                             <p>
                                                 <label>
                                                     Şifreniz<br/>
-                                                    <input type="password" tabindex="20" size="20" value="" name="pwd" class="input-text" />
+                                                    <input type="password" tabindex="20" size="20" value="" name="password" class="input-text" />
                                                 </label>
                                             </p>
 
                                             
 
                                             <p class="align-right">
-                                                <input type="submit" tabindex="100" value="Giriş" name="wp-submit" class="input-submit" />
+                                                <input type="submit" name="girisbtn" tabindex="100" value="Giriş" name="wp-submit" class="input-submit" />
                                                 <input type="hidden" value="index.html" name="redirect_to" />
                                                 <input type="hidden" value="1" name="testcookie" />
                                             </p>

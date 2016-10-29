@@ -15,7 +15,7 @@ if(@$_POST['btnduzenle']){
     } else  header("Location:sayfaayar.php?status=hata");
 }
 
-if($_POST['btnmakalekaydet']){
+if(@$_POST['btnmakalekaydet']){
     $kaydet = $baglan->prepare('insert into makale (makale_baslik, makale_icerik, makale_resim, makale_yazar, makale_etiket) values (?,?,?,?,?)');
     $kaydet->execute(array($_POST['makale_baslik'], $_POST['makale_icerik'], $_POST['makale_resim'], $_POST['makale_yazar'], $_POST['makale_etiket']));
     if($kaydet->rowCount()){
@@ -23,5 +23,17 @@ if($_POST['btnmakalekaydet']){
     } else header("Location:makale.php?status=ok");
 }
 
+
+if ($_POST['girisbtn']) {
+    $usersorgu = $baglan->query("select * from user");
+    $user = $usersorgu->fetch(PDO::FETCH_ASSOC);
+
+    if (($user['username']==$_POST['username']) && ($user['password']==$_POST['password'])) {
+        session_start();
+        $_SESSION['username'] = $_POST['username'];
+        header('Location:index.php?status=kok');
+    } else header('Location:../index.php');
+    
+}
 
 ?>
